@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  tts:
+    container_name: tts
+    image: paidax/tts_modelscope:0.1.3
+    ports:
+      - 9566:9566
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: uvicorn main:app --reload --port 9566 --host 0.0.0.0
