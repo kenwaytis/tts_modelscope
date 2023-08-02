@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir \
 WORKDIR /home/tts
 COPY . .
 
-RUN python /home/tts/download_file.py
+# RUN python /home/tts/download_file.py
